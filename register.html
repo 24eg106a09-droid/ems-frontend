@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="auth card">
+
+    <h1>Create Account</h1>
+
+    <input
+        id="name"
+        type="text"
+        placeholder="Full name"
+    >
+
+    <input
+        id="email"
+        type="email"
+        placeholder="Email"
+    >
+
+    <input
+        id="password"
+        type="password"
+        placeholder="Password"
+    >
+
+    <button type="button" onclick="registerUser()">
+        Register
+    </button>
+
+    <p id="msg"></p>
+
+    <p>
+        Already registered?
+        <a href="login.html">Login</a>
+    </p>
+
+</div>
+<script src="js/app.js?v=3"></script>
+
+</body>
+</html>

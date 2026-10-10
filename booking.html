@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bus Booking - BusBook</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <b>🚌 BusBook</b>
+        <span>
+            <a href="index.html">Home</a>
+            <a href="my-bookings.html">My Bookings</a>
+            <button type="button" onclick="logout()">Logout</button>
+        </span>
+    </nav>
+
+    <main class="card">
+
+        <h1 id="title">Bus Booking</h1>
+
+        <div id="details">
+            Loading bus details...
+        </div>
+
+        <hr>
+
+        <h2>Select Seats</h2>
+
+        <p>Please click one or more seats to select them.</p>
+
+        <div style="margin: 20px 0;">
+            <span style="color: #2563eb;">● Available</span>
+            &nbsp;&nbsp;
+            <span style="color: #16a34a;">● Selected</span>
+        </div>
+
+        <div id="seats" class="seats">
+            Loading seats...
+        </div>
+
+        <p>
+            Selected seats:
+            <b id="selected">None</b>
+        </p>
+
+        <p id="msg" role="status" aria-live="polite"></p>
+
+        <button
+            type="button"
+            id="confirmBookingBtn"
+            onclick="bookNow()">
+            Confirm Booking &amp; Simulate Payment
+        </button>
+
+        <p style="margin-top: 20px;">
+            <a href="index.html">← Back to bus search</a>
+        </p>
+
+    </main>
+
+    <script src="js/app.js?v=12"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof loadBooking === "function") {
+                loadBooking();
+            } else {
+                document.getElementById("msg").textContent =
+                    "Booking JavaScript did not load. Please check app.js.";
+            }
+        });
+    </script>
+
+</body>
+</html>

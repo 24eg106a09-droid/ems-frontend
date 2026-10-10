@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1"
+    >
+
+    <title>Bus Ticket Booking</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ===============================
+     NAVIGATION BAR
+================================ -->
+
+<nav>
+
+    <b>🚌 BusBook</b>
+
+    <span>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a
+            href="login.html"
+            id="loginLink"
+        >
+            Login
+        </a>
+
+        <a
+            href="register.html"
+            id="registerLink"
+        >
+            Register
+        </a>
+
+        <a
+            href="my-bookings.html"
+            id="bookingsLink"
+        >
+            My Bookings
+        </a>
+
+        <a
+            href="admin.html"
+            id="adminLink"
+        >
+            Admin
+        </a>
+
+        <span id="welcome"></span>
+
+        <button
+            id="logoutBtn"
+            onclick="logout()"
+            style="display:none;"
+        >
+            Logout
+        </button>
+
+    </span>
+
+</nav>
+
+
+<!-- ===============================
+     HEADER
+================================ -->
+
+<header>
+
+    <h1>
+        Bus Ticket Booking System
+    </h1>
+
+    <p>
+        Search buses, choose your seats
+        and book your journey easily.
+    </p>
+
+    <h3 id="userWelcome"></h3>
+
+</header>
+
+
+<!-- ===============================
+     SEARCH BUSES
+================================ -->
+
+<section class="card search">
+
+    <h2>
+        Search Buses
+    </h2>
+
+    <div class="grid">
+
+        <input
+            id="from"
+            placeholder="From (e.g. Hyderabad)"
+        >
+
+        <input
+            id="to"
+            placeholder="To (e.g. Vijayawada)"
+        >
+
+        <input
+            id="date"
+            type="date"
+        >
+
+        <button onclick="searchBuses()">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===============================
+     BUS RESULTS
+================================ -->
+
+<section class="card">
+
+    <h2>
+        Available Buses
+    </h2>
+
+    <div id="results">
+
+        Enter your journey details
+        and click Search.
+
+    </div>
+
+</section>
+
+
+<!-- ===============================
+     JAVASCRIPT
+================================ -->
+
+<script src="js/app.js?v=10"></script>
+
+
+<script>
+
+    // Get login information
+    const role = sessionStorage.getItem("role");
+    const name = sessionStorage.getItem("name");
+
+
+    // ===============================
+    // USER IS LOGGED IN
+    // ===============================
+
+    if (name && role) {
+
+        document.getElementById("welcome").textContent =
+            " | Welcome, " + name;
+
+
+        document.getElementById("userWelcome").textContent =
+            "Welcome, " + name + "! 👋";
+
+
+        // Hide Login and Register
+        document.getElementById("loginLink").style.display =
+            "none";
+
+        document.getElementById("registerLink").style.display =
+            "none";
+
+
+        // Show Logout
+        document.getElementById("logoutBtn").style.display =
+            "inline-block";
+
+
+    } else {
+
+        // User is not logged in
+
+        document.getElementById("bookingsLink").style.display =
+            "none";
+
+        document.getElementById("adminLink").style.display =
+            "none";
+    }
+
+
+    // ===============================
+    // ADMIN LINK
+    // ===============================
+
+    if (role !== "ADMIN") {
+
+        document.getElementById("adminLink").style.display =
+            "none";
+    }
+
+</script>
+
+
+</body>
+
+</html>
