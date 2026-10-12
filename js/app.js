@@ -1,4 +1,4 @@
-const api = '/api';
+const api = 'https://bus-ticket-booking-backend-3l96.onrender.com/api';
 
 
 // =====================================================
